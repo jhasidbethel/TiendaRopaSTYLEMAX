@@ -1,45 +1,41 @@
-@import url('components.css');
-
+@import url('componentes.css');
 
 .portada{
-   display: flex;
-   align-items: center;
-   min-height: 60vh;
-   background-image: url("imagenes/portada.jpg");
-   background-repeat: no-repeat;
-
+   background: url(..imagenes\portada.jpg) no-repeat;
+   background-size: cover;
+   background-position: center;
 }
 
-.home-bg .home{
+.portada .home{
    display: flex;
    align-items: center;
    min-height: 60vh;
 }
 
-.home-bg .home .content{
+.portada .home .content{
    width: 50rem;
 }
 
-.home-bg .home .content span{
+.portada .home .content span{
    color:var(--orange);
    font-size: 2.5rem;
 }
 
-.home-bg .home .content h3{
+.portada .home .content h3{
    font-size: 3rem;
    text-transform: uppercase;
    margin-top: 1.5rem;
    color:var(--black);
 }
 
-.home-bg .home .content p{
+.portada .home .content p{
    font-size: 1.6rem;
    padding:1rem 0;
    line-height: 2;
    color:var(--light-color);
 }
 
-.home-bg .home .content a{
+.portada .home .content a{
    display: inline-block;
    width: auto;
 }
@@ -708,7 +704,7 @@
 }
 
 .placed-orders .box-container .box p span{
-   color:var(--green);
+   color:var(--purple);
 }
 
 

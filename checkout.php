@@ -59,18 +59,16 @@ if(isset($_POST['order'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>checkout</title>
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+
+   
 
 </head>
 <body>
@@ -102,23 +100,23 @@ if(isset($_POST['order'])){
 
    <form action="" method="POST">
 
-      <h3>place your order</h3>
+      <h3>tu orden </h3>
 
       <div class="flex">
          <div class="inputBox">
-            <span>your name :</span>
-            <input type="text" name="name" placeholder="enter your name" class="box" required>
+            <span>tu nombre :</span>
+            <input type="text" name="name" placeholder="nombre" class="box" required>
          </div>
          <div class="inputBox">
-            <span>your number :</span>
-            <input type="number" name="number" placeholder="enter your number" class="box" required>
+            <span>tu numero :</span>
+            <input type="number" name="number" placeholder="numero" class="box" required>
          </div>
          <div class="inputBox">
             <span>your email :</span>
             <input type="email" name="email" placeholder="enter your email" class="box" required>
          </div>
          <div class="inputBox">
-            <span>payment method :</span>
+            <span>metodo de pago :</span>
             <select name="method" class="box" required>
                <option value="cash on delivery">cash on delivery</option>
                <option value="credit card">credit card</option>

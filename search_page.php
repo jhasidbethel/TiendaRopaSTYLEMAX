@@ -77,18 +77,14 @@ if(isset($_POST['add_to_cart'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>search page</title>
+   <title>buscar pagina</title>
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   
 
 </head>
 <body>
@@ -118,7 +114,8 @@ if(isset($_POST['add_to_cart'])){
       if(isset($_POST['search_btn'])){
       $search_box = $_POST['search_box'];
       $search_box = filter_var($search_box, FILTER_SANITIZE_STRING);
-      $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$search_box}%' OR category LIKE '%{$search_box}%'");
+      $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE ? OR category LIKE ?");
+      $select_products->execute(["%{$search_box}%", "%{$search_box}%"]);
       $select_products->execute();
       if($select_products->rowCount() > 0){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
