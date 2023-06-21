@@ -1,15 +1,7 @@
 
 :root{
 
- --purple: #800080;
- --orange: #f39c12;
- --red: #e74c3c;
- --black: #333;
- --light-color: #666;
- --white: #fff;
- --light-bg: #f6f6f6;
- --border: .2rem solid var(--black);
- --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+ 
     
 }
 
@@ -25,7 +17,7 @@
  }
  
  *::selection {
-   background-color: var(--purple);
+   background-color: purple;
    color: var(--white);
  }
  
@@ -39,7 +31,7 @@
  }
  
  *::-webkit-scrollbar-thumb {
-   background-color: var(--purple);
+   background-color: purple;
  }
  
  body {
@@ -72,7 +64,7 @@
    width: 100%;
    margin-top: 1rem;
    border-radius: .5rem;
-   color: var(--purple);
+   color: purple;
    font-size: 2rem;
    padding: 1.3rem 3rem;
    text-transform: capitalize;
@@ -207,7 +199,7 @@
  }
  
  .form-container form p a {
-   color: var(--purple);
+   color: purple;
  }
  
  .form-container form p a:hover {
@@ -236,43 +228,43 @@
  
  .header .flex .logo {
    font-size: 2.5rem;
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .logo span {
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .navbar a {
    margin: 0 1rem;
    font-size: 2rem;
-   color: var(purple);
+   color: purple;
  }
  
  .header .flex .navbar a:hover {
    text-decoration: underline;
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .icons > * {
    font-size: 2.5rem;
-   color: var(--purple);
+   color: purple;
    cursor: pointer;
    margin-left: 1.5rem;
  }
  
  .header .flex .icons > *:hover {
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .icons a span,
  .header .flex .icons a i {
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .icons a:hover span,
  .header .flex .icons a:hover i {
-   color: var(--purple);
+   color: purple;
  }
  
  .header .flex .icons a span {

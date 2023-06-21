@@ -704,7 +704,7 @@
 }
 
 .placed-orders .box-container .box p span{
-   color:var(--purple);
+   color: purple;
 }
 
 
@@ -717,11 +717,11 @@
 
 @media (max-width:768px){
 
-   .home-bg{
+   .portada{
       background-position: left;
    }
 
-   .home-bg .home{
+   .portada .home{
       justify-content: center;
       text-align: center;
    }

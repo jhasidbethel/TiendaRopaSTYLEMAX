@@ -27,7 +27,7 @@ if(isset($_POST['add_to_cart'])){
    $check_cart_numbers->execute([$p_name, $user_id]);
 
    if($check_cart_numbers->rowCount() > 0){
-      $message[] = 'already added to cart!';
+      $message[] ='!ya agregado al carrito!';
    }else{
 
       $check_wishlist_numbers = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
@@ -40,7 +40,7 @@ if(isset($_POST['add_to_cart'])){
 
       $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
       $insert_cart->execute([$user_id, $pid, $p_name, $p_price, $p_qty, $p_image]);
-      $message[] = 'added to cart!';
+      $message[] = '!añadido al carrito!';
    }
 
 }
@@ -71,7 +71,7 @@ if(isset($_GET['delete_all'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>wishlist</title>
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="css/style.css">
 
    
@@ -95,7 +95,7 @@ if(isset($_GET['delete_all'])){
          while($fetch_wishlist = $select_wishlist->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" method="POST" class="box">
-      <a href="wishlist.php?delete=<?= $fetch_wishlist['id']; ?>" class="fas fa-times" onclick="return confirm('delete this from wishlist?');"></a>
+      <a href="wishlist.php?delete=<?= $fetch_wishlist['id']; ?>" class="fas fa-times" onclick="return confirm('¿eliminar de la lista de deseos?');"></a>
       <a href="view_page.php?pid=<?= $fetch_wishlist['pid']; ?>" class="fas fa-eye"></a>
       <img src="uploaded_img/<?= $fetch_wishlist['image']; ?>" alt="">
       <div class="name"><?= $fetch_wishlist['name']; ?></div>
@@ -105,13 +105,13 @@ if(isset($_GET['delete_all'])){
       <input type="hidden" name="p_name" value="<?= $fetch_wishlist['name']; ?>">
       <input type="hidden" name="p_price" value="<?= $fetch_wishlist['price']; ?>">
       <input type="hidden" name="p_image" value="<?= $fetch_wishlist['image']; ?>">
-      <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+      <input type="submit" value="añadir al carrito" name="add_to_cart" class="btn">
    </form>
    <?php
       $grand_total += $fetch_wishlist['price'];
       }
    }else{
-      echo '<p class="empty">your wishlist is empty</p>';
+      echo '<p class="empty">lista de deseos vacia</p>';
    }
    ?>
    </div>

@@ -84,6 +84,8 @@ if(isset($_POST['add_to_cart'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Tienda</title>
 
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="css/style.css">
 
    
@@ -95,10 +97,10 @@ if(isset($_POST['add_to_cart'])){
 
 <section class="p-category">
 
-   <a href="category.php?category=fruits">Sueter</a>
-   <a href="category.php?category=vegitables">Camisas</a>
-   <a href="category.php?category=fish">Jeans</a>
-   <a href="category.php?category=meat">Busos</a>
+   <a href="category.php?category=sueteres">Sueter</a>
+   <a href="category.php?category=camisas">Camisas</a>
+   <a href="category.php?category=jeans">Jeans</a>
+   <a href="category.php?category=buzos">Buzos</a>
    
 
 </section>
@@ -125,13 +127,13 @@ if(isset($_POST['add_to_cart'])){
       <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
       <input type="hidden" name="p_image" value="<?= $fetch_products['image']; ?>">
       <input type="number" min="1" value="1" name="p_qty" class="qty">
-      <input type="submit" value="add to wishlist" class="option-btn" name="add_to_wishlist">
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="submit" value="lista de deseos" class="option-btn" name="add_to_wishlist">
+      <input type="submit" value="añadir al carrito" class="btn" name="add_to_cart">
    </form>
    <?php
       }
    }else{
-      echo '<p class="empty">no products added yet!</p>';
+      echo '<p class="empty">!no hay productos añadidos!</p>';
    }
    ?>
 

@@ -66,6 +66,7 @@ if(isset($_POST['order'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>checkout</title>
 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="css/style.css">
 
    
@@ -90,10 +91,10 @@ if(isset($_POST['order'])){
    <?php
     }
    }else{
-      echo '<p class="empty">your cart is empty!</p>';
+      echo '<p class="empty">!su carrito esta vacio!</p>';
    }
    ?>
-   <div class="grand-total">grand total : <span>$<?= $cart_grand_total; ?>/-</span></div>
+   <div class="grand-total">suma total : <span>$<?= $cart_grand_total; ?>/-</span></div>
 </section>
 
 <section class="checkout-orders">
@@ -108,20 +109,23 @@ if(isset($_POST['order'])){
             <input type="text" name="name" placeholder="nombre" class="box" required>
          </div>
          <div class="inputBox">
-            <span>tu numero :</span>
+            <span>tu numero telefono :</span>
             <input type="number" name="number" placeholder="numero" class="box" required>
          </div>
          <div class="inputBox">
-            <span>your email :</span>
-            <input type="email" name="email" placeholder="enter your email" class="box" required>
+            <span>tu email :</span>
+            <input type="email" name="email" placeholder=" email" class="box" required>
          </div>
          <div class="inputBox">
             <span>metodo de pago :</span>
             <select name="method" class="box" required>
-               <option value="cash on delivery">cash on delivery</option>
-               <option value="credit card">credit card</option>
-               <option value="paytm">paytm</option>
+               <option value="pago en efectivo">pago en efectivo</option>
+               <option value="tarjeta de credito">tarjeta de credito</option>
+               <option value="nequi">nequi</option>
                <option value="paypal">paypal</option>
+               <option value="bancolombia">bancolombia</option>
+               <option value="daviplata">daviplata</option>
+               
             </select>
          </div>
          <div class="inputBox">

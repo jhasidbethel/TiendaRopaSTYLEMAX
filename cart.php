@@ -29,7 +29,7 @@ if(isset($_POST['update_qty'])){
    $p_qty = filter_var($p_qty, FILTER_SANITIZE_STRING);
    $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
    $update_qty->execute([$p_qty, $cart_id]);
-   $message[] = 'cart quantity updated';
+   $message[] = 'cantidad del carrito actualizada';
 }
 
 ?>
@@ -40,8 +40,9 @@ if(isset($_POST['update_qty'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>shopping cart</title>
+   <title>carrito de compras</title>
 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="css/style.css">
 
    
@@ -53,7 +54,7 @@ if(isset($_POST['update_qty'])){
 
 <section class="shopping-cart">
 
-   <h1 class="title">products added</h1>
+   <h1 class="title">productos añadidos</h1>
 
    <div class="box-container">
 
@@ -73,7 +74,7 @@ if(isset($_POST['update_qty'])){
       <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
       <div class="flex-btn">
          <input type="number" min="1" value="<?= $fetch_cart['quantity']; ?>" class="qty" name="p_qty">
-         <input type="submit" value="update" name="update_qty" class="option-btn">
+         <input type="submit" value="actualizar" name="update_qty" class="option-btn">
       </div>
       <div class="sub-total"> sub total : <span>$<?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span> </div>
    </form>
@@ -81,16 +82,16 @@ if(isset($_POST['update_qty'])){
       $grand_total += $sub_total;
       }
    }else{
-      echo '<p class="empty">your cart is empty</p>';
+      echo '<p class="empty">su carrito esta vacio</p>';
    }
    ?>
    </div>
 
    <div class="cart-total">
-      <p>grand total : <span>$<?= $grand_total; ?>/-</span></p>
-      <a href="shop.php" class="option-btn">continue shopping</a>
-      <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">delete all</a>
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+      <p>cantidad total : <span>$<?= $grand_total; ?>/-</span></p>
+      <a href="shop.php" class="option-btn">seguir comprando</a>
+      <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">eliminar todo</a>
+      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">pasar por la caja</a>
    </div>
 
 </section>
