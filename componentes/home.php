@@ -84,7 +84,7 @@ if(isset($_POST['add_to_cart'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>home page</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style.css"> 
+   <link rel="stylesheet" href="../css/style.css"> 
 
    
 
@@ -97,7 +97,7 @@ if(isset($_POST['add_to_cart'])){
 
    <section class="home">
       <div class="content">
-     <a href="shop.php"><img src="imagenes/portada.jpg" width="100%" height="400px"></a>
+     <a href="shop.php"><img src="../imagenes/portada.jpg" width="100%" height="400px"></a>
       <a href="about.php" class="btn">acerca de nosotros</a>
       </div>
 
@@ -112,59 +112,59 @@ if(isset($_POST['add_to_cart'])){
    <div class="box-container">
 
       <div class="box">
-         <img src="imagenes/Nike.png" alt="">
+         <img src="../imagenes/Nike.png" alt="">
          <h3>Sueteres</h3>
          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat.</p>
-         <a href="category.php?category=fruits" class="btn">sueteres</a>
+         <a href="category.php?category=sueteres" class="btn">sueteres</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (12).png" alt="">
+         <img src="../imagenes/pngwing.com (12).png" alt="">
          <h3>Jeans</h3>
          <p>Prendas clásicas y modernas que se adaptan a tu figura. Diferentes modelos, tallas y lavados. Con rotos, desgastados, bordados o detalles.</p>
-         <a href="category.php?category=meat" class="btn">Jeans</a>
+         <a href="category.php?category=jeans" class="btn">Jeans</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (4).png" alt="">
+         <img src="../imagenes/pngwing.com (4).png" alt="">
          <h3>Camisas</h3>
          <p>Prendas básicas y versátiles para combinar con diferentes estilos. Colores, estampados, tejidos y cortes variados.</p>
-         <a href="category.php?category=vegitables" class="btn">Camisas</a>
+         <a href="category.php?category=camisas" class="btn">Camisas</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (3).png" alt="">
+         <img src="../imagenes/pngwing.com (3).png" alt="">
          <h3>Buzos</h3>
          <p>Prendas deportivas y urbanas para tu comodidad y practicidad. Algodón, poliéster, felpa y otros materiales suaves y transpirables.</p>
-         <a href="category.php?category=fish" class="btn">Buzos</a>
+         <a href="category.php?category=buzos" class="btn">Buzos</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (26).png" alt="">
+         <img src="../imagenes/pngwing.com (26).png" alt="">
          <h3>Vestidos</h3>
          <p>Prendas femeninas y elegantes para cualquier ocasión. Diversos estilos, colores y estampados. Largos, cortos, midi, ajustados o sueltos.</p>
-         <a href="#" class="btn">Vestidos</a>
+         <a href="category.php?category=vestidos" class="btn">Vestidos</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (22).png" alt="">
+         <img src="../imagenes/pngwing.com (22).png" alt="">
          <h3>Shorts</h3>
          <p>Prendas perfectas para los días calurosos o para un outfit casual y cómodo. Denim, tela, lino y otros materiales ligeros y frescos.</p>
-         <a href="#" class="btn">Shorts</a>
+         <a href="category.php?category=shorts" class="btn">Shorts</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (18).png" alt="">
+         <img src="../imagenes/pngwing.com (18).png" alt="">
          <h3>Chaquetas</h3>
          <p>Prendas imprescindibles para protegerte del frío y completar tu outfit. Cuero, denim, tela, lana y otros materiales resistentes y de calidad.</p>
-         <a href="#" class="btn">Chaquetas</a>
+         <a href="category.php?category=chaquetas" class="btn">Chaquetas</a>
       </div>
 
       <div class="box">
-         <img src="imagenes/pngwing.com (15).png" alt="">
+         <img src="../imagenes/pngwing.com (15).png" alt="">
          <h3>Jeans mujer</h3>
          <p>Prendas versátiles y modernas para combinar con todo. Diferentes modelos, tallas y lavados. Con rotos, desgastados, bordados o detalles.</p>
-         <a href="#" class="btn">Jeans mujer</a>
+         <a href="category.php?category=jeans mujer" class="btn">Jeans mujer</a>
       </div>
    </div>
 
@@ -185,7 +185,7 @@ if(isset($_POST['add_to_cart'])){
    <form action="" class="box" method="POST">
       <div class="price">$<span><?= $fetch_products['price']; ?></span>/-</div>
       <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
       <input type="hidden" name="p_name" value="<?= $fetch_products['name']; ?>">

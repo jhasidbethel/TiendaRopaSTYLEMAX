@@ -28,13 +28,13 @@ if(isset($_POST['add_to_wishlist'])){
    $check_cart_numbers->execute([$p_name, $user_id]);
 
    if($check_wishlist_numbers->rowCount() > 0){
-      $message[] = 'already added to wishlist!';
+      $message[] = '!ya esta  añadido a lista de deseos!';
    }elseif($check_cart_numbers->rowCount() > 0){
-      $message[] = 'already added to cart!';
+      $message[] = '!ya esta añadido al carrito!';
    }else{
       $insert_wishlist = $conn->prepare("INSERT INTO `wishlist`(user_id, pid, name, price, image) VALUES(?,?,?,?,?)");
       $insert_wishlist->execute([$user_id, $pid, $p_name, $p_price, $p_image]);
-      $message[] = 'added to wishlist!';
+      $message[] = '!añadido a lista de deseos!';
    }
 
 }
@@ -56,7 +56,7 @@ if(isset($_POST['add_to_cart'])){
    $check_cart_numbers->execute([$p_name, $user_id]);
 
    if($check_cart_numbers->rowCount() > 0){
-      $message[] = 'already added to cart!';
+      $message[] = '!ya esta añadido al carrito!';
    }else{
 
       $check_wishlist_numbers = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
@@ -69,7 +69,7 @@ if(isset($_POST['add_to_cart'])){
 
       $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
       $insert_cart->execute([$user_id, $pid, $p_name, $p_price, $p_qty, $p_image]);
-      $message[] = 'added to cart!';
+      $message[] = '!añadido al carrito!';
    }
 
 }
@@ -82,12 +82,10 @@ if(isset($_POST['add_to_cart'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Tienda</title>
-
-   
+   <title>vista rapida</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style.css">
-
+   <link rel="stylesheet" href="../css/style.css">
+   
    
 
 </head>
@@ -95,33 +93,22 @@ if(isset($_POST['add_to_cart'])){
    
 <?php include 'header.php'; ?>
 
-<section class="p-category">
+<section class="quick-view">
 
-   <a href="category.php?category=sueteres">Sueter</a>
-   <a href="category.php?category=camisas">Camisas</a>
-   <a href="category.php?category=jeans">Jeans</a>
-   <a href="category.php?category=buzos">Buzos</a>
-   
-
-</section>
-
-<section class="products">
-
-   <h1 class="title">ultimos productos</h1>
-
-   <div class="box-container">
+   <h1 class="title">vista rapida</h1>
 
    <?php
-      $select_products = $conn->prepare("SELECT * FROM `products`");
-      $select_products->execute();
+      $pid = $_GET['pid'];
+      $select_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
+      $select_products->execute([$pid]);
       if($select_products->rowCount() > 0){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <form action="" class="box" method="POST">
       <div class="price">$<span><?= $fetch_products['price']; ?></span>/-</div>
-      <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
+      <div class="details"><?= $fetch_products['details']; ?></div>
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
       <input type="hidden" name="p_name" value="<?= $fetch_products['name']; ?>">
       <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
@@ -131,13 +118,11 @@ if(isset($_POST['add_to_cart'])){
       <input type="submit" value="añadir al carrito" class="btn" name="add_to_cart">
    </form>
    <?php
+         }
+      }else{
+         echo '<p class="empty">!no hay productos añadidos!</p>';
       }
-   }else{
-      echo '<p class="empty">!no hay productos añadidos!</p>';
-   }
    ?>
-
-   </div>
 
 </section>
 

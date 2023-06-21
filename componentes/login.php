@@ -31,11 +31,11 @@ if(isset($_POST['submit'])){
          header('location:home.php');
 
       }else{
-         $message[] = 'no user found!';
+         $message[] = '!usuario no encontrado!';
       }
 
    }else{
-      $message[] = 'incorrect email or password!';
+      $message[] = '!email o contraseña incorrecta!';
    }
 
 }
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
    <title>login</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   <link rel="stylesheet" href="css/componentes.css">
+   <link rel="stylesheet" href="../css/componentes.css">
 
   
 
@@ -78,7 +78,7 @@ if(isset($message)){
    <form action="" method="POST">
       <h3>ingresar</h3>
       <input type="email" name="email" class="box" placeholder="ingrese su correo" required>
-      <input type="password" name="pass" class="box" placeholder="enter your password" required>
+      <input type="password" name="pass" class="box" placeholder="ingrese su contraseña" required>
       <input type="submit" value="login now" class="btn" name="submit">
       <p>¿No tiene una cuenta? <a href="register.php">Registrarse</a></p>
    </form>

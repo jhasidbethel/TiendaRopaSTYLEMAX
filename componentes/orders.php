@@ -20,7 +20,7 @@ if(!isset($user_id)){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Pedidos</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="../css/style.css">
 
 
 
@@ -44,20 +44,20 @@ if(!isset($user_id)){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){ 
    ?>
    <div class="box">
-      <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
-      <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
-      <p> number : <span><?= $fetch_orders['number']; ?></span> </p>
+      <p> pedido en : <span><?= $fetch_orders['placed_on']; ?></span> </p>
+      <p> nombre : <span><?= $fetch_orders['name']; ?></span> </p>
+      <p> numero : <span><?= $fetch_orders['number']; ?></span> </p>
       <p> email : <span><?= $fetch_orders['email']; ?></span> </p>
-      <p> address : <span><?= $fetch_orders['address']; ?></span> </p>
-      <p> payment method : <span><?= $fetch_orders['method']; ?></span> </p>
-      <p> your orders : <span><?= $fetch_orders['total_products']; ?></span> </p>
-      <p> total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
-      <p> payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
+      <p> direccion : <span><?= $fetch_orders['address']; ?></span> </p>
+      <p> metodo de pago : <span><?= $fetch_orders['method']; ?></span> </p>
+      <p> sus pedidos : <span><?= $fetch_orders['total_products']; ?></span> </p>
+      <p> precio total : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
+      <p> estado de pago : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
    </div>
    <?php
       }
    }else{
-      echo '<p class="empty">no orders placed yet!</p>';
+      echo '<p class="empty">!no hay pedidos realizados!</p>';
    }
    ?>
 

@@ -29,7 +29,7 @@ if(isset($_GET['delete'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>users</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style2.css">
+   <link rel="stylesheet" href="../css/style2.css">
 
    
 
@@ -40,7 +40,7 @@ if(isset($_GET['delete'])){
 
 <section class="user-accounts">
 
-   <h1 class="title">user accounts</h1>
+   <h1 class="title">cuentas de usuarios</h1>
 
    <div class="box-container">
    
@@ -51,11 +51,11 @@ if(isset($_GET['delete'])){
       ?>
       <div class="box" style="<?php if($fetch_users['id'] == $admin_id){ echo 'display:none'; }; ?>">
          <img src="uploaded_img/<?= $fetch_users['image']; ?>" alt="">
-         <p> user id : <span><?= $fetch_users['id']; ?></span></p>
-         <p> username : <span><?= $fetch_users['name']; ?></span></p>
+         <p> id usuario : <span><?= $fetch_users['id']; ?></span></p>
+         <p> nombre de usuario : <span><?= $fetch_users['name']; ?></span></p>
          <p> email : <span><?= $fetch_users['email']; ?></span></p>
-         <p> user type : <span style=" color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'orange'; }; ?>"><?= $fetch_users['user_type']; ?></span></p>
-         <a href="admin_users.php?delete=<?= $fetch_users['id']; ?>" onclick="return confirm('delete this user?');" class="delete-btn">delete</a>
+         <p> tipo de usuario : <span style=" color:<?php if($fetch_users['user_type'] == 'admin'){ echo 'orange'; }; ?>"><?= $fetch_users['user_type']; ?></span></p>
+         <a href="admin_users.php?delete=<?= $fetch_users['id']; ?>" onclick="return confirm('delete this user?');" class="delete-btn">eliminar</a>
       </div>
       <?php
       }

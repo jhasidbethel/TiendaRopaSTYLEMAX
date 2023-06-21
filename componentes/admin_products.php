@@ -31,7 +31,7 @@ if(isset($_POST['add_product'])){
    $select_products->execute([$name]);
 
    if($select_products->rowCount() > 0){
-      $message[] = 'product name already exist!';
+      $message[] = '!el nombre de producto ya existe!';
    }else{
 
       $insert_products = $conn->prepare("INSERT INTO `products`(name, category, details, price, image) VALUES(?,?,?,?,?)");
@@ -39,10 +39,10 @@ if(isset($_POST['add_product'])){
 
       if($insert_products){
          if($image_size > 2000000){
-            $message[] = 'image size is too large!';
+            $message[] = 'tamaño de imagen muy largo!';
          }else{
             move_uploaded_file($image_tmp_name, $image_folder);
-            $message[] = 'new product added!';
+            $message[] = '!nuevo producto añadido!';
          }
 
       }
@@ -80,7 +80,7 @@ if(isset($_GET['delete'])){
    <title>productos</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style2.css">
+   <link rel="stylesheet" href="../css/style2.css">
 
    
 
@@ -91,34 +91,38 @@ if(isset($_GET['delete'])){
 
 <section class="add-products">
 
-   <h1 class="title">add new product</h1>
+   <h1 class="title">añadir nuevos productos</h1>
 
    <form action="" method="POST" enctype="multipart/form-data">
       <div class="flex">
          <div class="inputBox">
-         <input type="text" name="name" class="box" required placeholder="enter product name">
+         <input type="text" name="name" class="box" required placeholder="ingrese nombre del producto">
          <select name="category" class="box" required>
-            <option value="" selected disabled>select category</option>
-               <option value="vegitables">vegitables</option>
-               <option value="fruits">fruits</option>
-               <option value="meat">meat</option>
-               <option value="fish">fish</option>
+            <option value="" selected disabled>seleccione la categoria</option>
+               <option value="jeans">jeans</option>
+               <option value="camisas">camisas</option>
+               <option value="sueteres">sueteres</option>
+               <option value="buzos">buzos</option>
+               <option value="vestidos">vestidos</option>
+               <option value="chaquetas">chaquetas<option>
+               <option value="shorts">shorts</option>
+               <option value="jeans mujer">jeans mujer</option>
          </select>
          </div>
          <div class="inputBox">
-         <input type="number" min="0" name="price" class="box" required placeholder="enter product price">
+         <input type="number" min="0" name="price" class="box" required placeholder="ingrese el precio del producto">
          <input type="file" name="image" required class="box" accept="image/jpg, image/jpeg, image/png">
          </div>
       </div>
-      <textarea name="details" class="box" required placeholder="enter product details" cols="30" rows="10"></textarea>
-      <input type="submit" class="btn" value="add product" name="add_product">
+      <textarea name="details" class="box" required placeholder="ingrese descripcion del producto" cols="30" rows="10"></textarea>
+      <input type="submit" class="btn" value="añadir producto" name="add_product">
    </form>
 
 </section>
 
 <section class="show-products">
 
-   <h1 class="title">products added</h1>
+   <h1 class="title">productos añadidos</h1>
 
    <div class="box-container">
 
@@ -135,14 +139,14 @@ if(isset($_GET['delete'])){
       <div class="cat"><?= $fetch_products['category']; ?></div>
       <div class="details"><?= $fetch_products['details']; ?></div>
       <div class="flex-btn">
-         <a href="admin_update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="admin_products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+         <a href="admin_update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">actualizar</a>
+         <a href="admin_products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('¿eliminar este producto?');">eliminar</a>
       </div>
    </div>
    <?php
       }
    }else{
-      echo '<p class="empty">now products added yet!</p>';
+      echo '<p class="empty">!productos añadidos!</p>';
    }
    ?>
 

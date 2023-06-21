@@ -1,5 +1,5 @@
 <?php
-
+// esto es para cerrar la sesion
 @include 'config.php';
 
 session_start();

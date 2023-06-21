@@ -17,7 +17,7 @@ if(isset($_POST['update_order'])){
    $update_payment = filter_var($update_payment, FILTER_SANITIZE_STRING);
    $update_orders = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
    $update_orders->execute([$update_payment, $order_id]);
-   $message[] = 'payment has been updated!';
+   $message[] = '!el pago ha sido actualizado?';
 
 };
 
@@ -41,7 +41,7 @@ if(isset($_GET['delete'])){
    <title>pedidos</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/style2.css">
+   <link rel="stylesheet" href="../css/style2.css">
 
    
 
@@ -52,7 +52,7 @@ if(isset($_GET['delete'])){
 
 <section class="placed-orders">
 
-   <h1 class="title">placed orders</h1>
+   <h1 class="title">pedidos realizados</h1>
 
    <div class="box-container">
 
@@ -64,20 +64,20 @@ if(isset($_GET['delete'])){
       ?>
       <div class="box">
          <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>
-         <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
-         <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
+         <p> pedido en : <span><?= $fetch_orders['placed_on']; ?></span> </p>
+         <p> nombre : <span><?= $fetch_orders['name']; ?></span> </p>
          <p> email : <span><?= $fetch_orders['email']; ?></span> </p>
-         <p> number : <span><?= $fetch_orders['number']; ?></span> </p>
-         <p> address : <span><?= $fetch_orders['address']; ?></span> </p>
-         <p> total products : <span><?= $fetch_orders['total_products']; ?></span> </p>
-         <p> total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
-         <p> payment method : <span><?= $fetch_orders['method']; ?></span> </p>
+         <p> numero : <span><?= $fetch_orders['number']; ?></span> </p>
+         <p> direccion : <span><?= $fetch_orders['address']; ?></span> </p>
+         <p> productos totales : <span><?= $fetch_orders['total_products']; ?></span> </p>
+         <p> precio total : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
+         <p> metodo de pago : <span><?= $fetch_orders['method']; ?></span> </p>
          <form action="" method="POST">
             <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
             <select name="update_payment" class="drop-down">
                <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
-               <option value="pending">pending</option>
-               <option value="completed">completed</option>
+               <option value="pendiente">pendiente</option>
+               <option value="completado">completado</option>
             </select>
             <div class="flex-btn">
                <input type="submit" name="update_order" class="option-btn" value="udate">
@@ -88,7 +88,7 @@ if(isset($_GET['delete'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no orders placed yet!</p>';
+         echo '<p class="empty">¡Aún no se han hecho pedidos!</p>';
       }
       ?>
 

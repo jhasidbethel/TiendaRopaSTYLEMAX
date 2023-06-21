@@ -23,20 +23,20 @@ if(isset($_POST['submit'])){
    $select->execute([$email]);
 
    if($select->rowCount() > 0){
-      $message[] = 'user email already exist!';
+      $message[] = '!email de usuario ya existe!';
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
+         $message[] = '!confirmar contraseña anterior!';
       }else{
          $insert = $conn->prepare("INSERT INTO `users`(name, email, password, image) VALUES(?,?,?,?)");
          $insert->execute([$name, $email, $pass, $image]);
 
          if($insert){
             if($image_size > 2000000){
-               $message[] = 'image size is too large!';
+               $message[] = '!imagen muy larga!';
             }else{
                move_uploaded_file($image_tmp_name, $image_folder);
-               $message[] = 'registered successfully!';
+               $message[] = '!registrado exitosamente!';
                header('location:login.php');
             }
          }
@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
    <title>registrarse</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="css/componentes.css">
+   <link rel="stylesheet" href="../css/componentes.css">
 
 
 
@@ -85,14 +85,14 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" enctype="multipart/form-data" method="POST">
-      <h3>register now</h3>
-      <input type="text" name="name" class="box" placeholder="enter your name" required>
-      <input type="email" name="email" class="box" placeholder="enter your email" required>
-      <input type="password" name="pass" class="box" placeholder="enter your password" required>
-      <input type="password" name="cpass" class="box" placeholder="confirm your password" required>
+      <h3>registrarse ahora</h3>
+      <input type="text" name="name" class="box" placeholder="ingrese su nombre" required>
+      <input type="email" name="email" class="box" placeholder="ingrese su email" required>
+      <input type="password" name="pass" class="box" placeholder="ingrese su contraseña" required>
+      <input type="password" name="cpass" class="box" placeholder="confirmar  contraseña" required>
       <input type="file" name="image" class="box" required accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" value="register now" class="btn" name="submit">
-      <p>already have an account? <a href="login.php">login now</a></p>
+      <input type="submit" value="registrarse ahora" class="btn" name="submit">
+      <p>¿ya tiene una cuenta? <a href="login.php">login now</a></p>
    </form>
 
 </section>
