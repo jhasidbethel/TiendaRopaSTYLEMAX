@@ -68,7 +68,7 @@ if(isset($_POST['update_qty'])){
    <form action="" method="POST" class="box">
       <a href="cart.php?delete=<?= $fetch_cart['id']; ?>" class="fas fa-times" onclick="return confirm('¿eliminar del carrito?');"></a>
       <a href="view_page.php?pid=<?= $fetch_cart['pid']; ?>" class="fas fa-eye"></a>
-      <img src="uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
       <div class="name"><?= $fetch_cart['name']; ?></div>
       <div class="price">$<?= $fetch_cart['price']; ?>/-</div>
       <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
@@ -105,7 +105,7 @@ if(isset($_POST['update_qty'])){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

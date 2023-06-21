@@ -1,16 +1,18 @@
 <?php
-
-@include 'config.php';
-
-session_start();
-
-$user_id = $_SESSION['user_id'];
-
-if(!isset($user_id)){
-   header('location:login.php');
+// Incluye el archivo de configuración
+@include 'config.php'; 
+// Inicia una nueva sesión o reanuda una existente
+session_start(); 
+// Obtiene el ID del usuario de la sesión
+$user_id = $_SESSION['user_id']; 
+// Verifica si el ID del usuario no está establecido
+if(!isset($user_id)){ 
+   // Redirige al usuario a la página de inicio de sesión
+   header('location:login.php'); 
 }
 
 ?>
+ <?php @include 'config.php';  ?> ```
 
 <!DOCTYPE html>
 <html lang="es">
@@ -150,7 +152,7 @@ if(!isset($user_id)){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

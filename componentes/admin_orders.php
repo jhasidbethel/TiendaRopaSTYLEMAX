@@ -80,8 +80,8 @@ if(isset($_GET['delete'])){
                <option value="completado">completado</option>
             </select>
             <div class="flex-btn">
-               <input type="submit" name="update_order" class="option-btn" value="udate">
-               <a href="admin_orders.php?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('delete this order?');">delete</a>
+               <input type="submit" name="update_order" class="option-btn" value="actualizar">
+               <a href="admin_orders.php?delete=<?= $fetch_orders['id']; ?>" class="delete-btn" onclick="return confirm('¿eliminar orden?');">eliminar</a>
             </div>
          </form>
       </div>
@@ -107,7 +107,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

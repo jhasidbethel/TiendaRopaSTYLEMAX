@@ -25,7 +25,7 @@ if(isset($_POST['add_product'])){
    $image = filter_var($image, FILTER_SANITIZE_STRING);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = '../uploaded_img/'.$image;
 
    $select_products = $conn->prepare("SELECT * FROM `products` WHERE name = ?");
    $select_products->execute([$name]);
@@ -107,6 +107,7 @@ if(isset($_GET['delete'])){
                <option value="chaquetas">chaquetas<option>
                <option value="shorts">shorts</option>
                <option value="jeans mujer">jeans mujer</option>
+               
          </select>
          </div>
          <div class="inputBox">
@@ -134,7 +135,7 @@ if(isset($_GET['delete'])){
    ?>
    <div class="box">
       <div class="price">$<?= $fetch_products['price']; ?>/-</div>
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <div class="name"><?= $fetch_products['name']; ?></div>
       <div class="cat"><?= $fetch_products['category']; ?></div>
       <div class="details"><?= $fetch_products['details']; ?></div>
@@ -164,7 +165,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

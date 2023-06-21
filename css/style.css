@@ -1,9 +1,10 @@
 @import url('componentes.css');
 
 .portada{
-   background: url(..imagenes\portada.jpg) no-repeat;
    background-size: cover;
    background-position: center;
+   height: 500px;
+   width: 200px;
 }
 
 .portada .home{
@@ -14,6 +15,7 @@
 
 .portada .home .content{
    width: 50rem;
+
 }
 
 .portada .home .content span{

@@ -94,16 +94,9 @@ if(isset($_POST['add_to_cart'])){
 <?php include 'header.php'; ?>
 
 <div class="portada">
-
-   <section class="home">
-      <div class="content">
-     <a href="shop.php"><img src="../imagenes/portada.jpg" width="100%" height="400px"></a>
-      <a href="about.php" class="btn">acerca de nosotros</a>
-      </div>
-
-   </section>
-
+   <a href="shop.php"><img src="../imagenes/portada.jpg" height= "500px" width= "1500px";></a>   
 </div>
+
 
 <section class="home-category">
 
@@ -214,7 +207,7 @@ if(isset($_POST['add_to_cart'])){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

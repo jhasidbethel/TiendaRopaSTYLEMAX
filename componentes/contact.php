@@ -9,7 +9,7 @@ $user_id = $_SESSION['user_id'];
 if(!isset($user_id)){
    header('location:login.php');
 };
-
+//se utiliza para recopilar datos de formularios enviados mediante el método
 if(isset($_POST['send'])){
 
    $name = $_POST['name'];
@@ -78,7 +78,7 @@ if(isset($_POST['send'])){
 
 <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

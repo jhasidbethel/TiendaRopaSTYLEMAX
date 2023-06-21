@@ -48,7 +48,7 @@ if(isset($message)){
             $select_profile->execute([$user_id]);
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
-         <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+         <img src="../uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
          <p><?= $fetch_profile['name']; ?></p>
          <a href="user_profile_update.php" class="btn">Actualizar perfil</a>
          <a href="logout.php" class="delete-btn">Cerrar sesion</a>

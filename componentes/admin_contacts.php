@@ -9,9 +9,9 @@ $admin_id = $_SESSION['admin_id'];
 if(!isset($admin_id)){
    header('location:login.php');
 };
-
-if(isset($_GET['delete'])){
-
+// Verifica si se ha pasado un parámetro 'delete' en la URL
+if(isset($_GET['delete'])){ 
+   //Obtiene el valor del parámetro 'delete'
    $delete_id = $_GET['delete'];
    $delete_message = $conn->prepare("DELETE FROM `message` WHERE id = ?");
    $delete_message->execute([$delete_id]);
@@ -81,7 +81,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

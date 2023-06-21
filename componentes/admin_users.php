@@ -50,7 +50,7 @@ if(isset($_GET['delete'])){
          while($fetch_users = $select_users->fetch(PDO::FETCH_ASSOC)){
       ?>
       <div class="box" style="<?php if($fetch_users['id'] == $admin_id){ echo 'display:none'; }; ?>">
-         <img src="uploaded_img/<?= $fetch_users['image']; ?>" alt="">
+         <img src="../uploaded_img/<?= $fetch_users['image']; ?>" alt="">
          <p> id usuario : <span><?= $fetch_users['id']; ?></span></p>
          <p> nombre de usuario : <span><?= $fetch_users['name']; ?></span></p>
          <p> email : <span><?= $fetch_users['email']; ?></span></p>
@@ -76,7 +76,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

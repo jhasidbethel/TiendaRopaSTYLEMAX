@@ -24,7 +24,7 @@ if(isset($_POST['update_profile'])){
    $image = filter_var($image, FILTER_SANITIZE_STRING);
    $image_size = $_FILES['image']['size'];
    $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'uploaded_img/'.$image;
+   $image_folder = '../uploaded_img/'.$image;
    $old_image = $_POST['old_image'];
 
    if(!empty($image)){
@@ -35,7 +35,7 @@ if(isset($_POST['update_profile'])){
          $update_image->execute([$image, $user_id]);
          if($update_image){
             move_uploaded_file($image_tmp_name, $image_folder);
-            unlink('uploaded_img/'.$old_image);
+            unlink('../uploaded_img/'.$old_image);
             $message[] = '!imagen actualizada exitosamente!';
          };
       };
@@ -89,7 +89,7 @@ if(isset($_POST['update_profile'])){
    <h1 class="title">actualizar perfil</h1>
 
    <form action="" method="POST" enctype="multipart/form-data">
-      <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
       <div class="flex">
          <div class="inputBox">
             <span>nombre usuario :</span>
@@ -130,7 +130,7 @@ if(isset($_POST['update_profile'])){
 <?php include 'footer.php'; ?>
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

@@ -86,7 +86,7 @@ if(isset($_POST['update_product'])){
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="old_image" value="<?= $fetch_products['image']; ?>">
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
-      <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+      <img src="../uploaded_img/<?= $fetch_products['image']; ?>" alt="">
       <input type="text" name="name" placeholder="ingrese nombre de producto" required class="box" value="<?= $fetch_products['name']; ?>">
       <input type="number" name="price" min="0" placeholder="ingrese precio de producto" required class="box" value="<?= $fetch_products['price']; ?>">
       <select name="category" class="box" required>
@@ -128,7 +128,7 @@ if(isset($_POST['update_product'])){
 
 
 
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>
